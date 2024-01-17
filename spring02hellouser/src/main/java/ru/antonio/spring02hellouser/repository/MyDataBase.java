@@ -16,18 +16,24 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 
-@Service
+@Component
 public class MyDataBase implements Repozitory{
     Session session;
-    SessionFactory sessionFactory = new Configuration()
-            .configure("hibernate.cfg.xml")
-            .addAnnotatedClass(User.class)
-            .buildSessionFactory();
+    SessionFactory sessionFactory;
+
+    public MyDataBase () {
+
+
+    }
 
     @Override
     public List <User> unload() {
+        sessionFactory = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .addAnnotatedClass(User.class)
+                .buildSessionFactory();
+        session = sessionFactory.getCurrentSession();
         try {
-            session = sessionFactory.getCurrentSession();
             CriteriaBuilder cb = session.getCriteriaBuilder();
 
             CriteriaQuery<User> cq = cb.createQuery(User.class);
@@ -38,8 +44,8 @@ public class MyDataBase implements Repozitory{
             return allQuery.getResultList();
         } catch (HibernateException e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     @Override

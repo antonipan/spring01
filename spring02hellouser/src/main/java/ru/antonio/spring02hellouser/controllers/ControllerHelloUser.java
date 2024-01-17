@@ -1,3 +1,4 @@
+
 package ru.antonio.spring02hellouser.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,7 @@ import ru.antonio.spring02hellouser.repository.MyDataBase;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Queue;
 
 @RestController
 public class ControllerHelloUser {
@@ -35,8 +37,8 @@ public class ControllerHelloUser {
         return myArrayName.findByName(name);
     }
 
-    @GetMapping("/names")
-    public String getUserNameDB () {
-        return Arrays.toString(myDataBase.unload().toArray());
-    }
+//    @GetMapping("/names"
+//    public String getUserNameDB () {
+//        return Arrays.toString(myDataBase.unload().toArray());
+//    }
 }
