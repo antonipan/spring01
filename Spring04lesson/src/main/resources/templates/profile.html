@@ -1,0 +1,12 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>User Profile</title>
+    </head>
+    <body>
+        <h1 th:text="Профиль: ${user.name}"></h1>
+        <p>ID: <span th:text="${user.id}"></span></p>
+        <p>E-mail: <span th:text="${user.email}"></span></p>
+    </body>
+</html>
