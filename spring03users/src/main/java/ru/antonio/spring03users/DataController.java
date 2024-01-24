@@ -28,13 +28,10 @@ public class DataController {
         return new ResponseEntity<>(processingService.getAllUser(), HttpStatus.OK);
     }
 
-
     @RequestMapping(value = "/sorted", method = RequestMethod.GET)
     public ResponseEntity<List<User>> getSortedListUsers () {
         return new ResponseEntity<>(processingService.sortedAge(), HttpStatus.OK);
     }
-
-
 
     @RequestMapping(value = "/filter/{age}", method = RequestMethod.GET)
     public ResponseEntity<List<User>> filterByAge (@PathVariable("age") Integer age){
