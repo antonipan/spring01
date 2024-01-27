@@ -5,8 +5,10 @@
         <title>User Profile</title>
     </head>
     <body>
-        <h1 th:text="Профиль: ${user.name}"></h1>
+        <h1 th:text="${user.name}">Профиль: </h1>
         <p>ID: <span th:text="${user.id}"></span></p>
         <p>E-mail: <span th:text="${user.email}"></span></p>
+
+        <a th:href = "@{/users}">Назад</a>
     </body>
 </html>

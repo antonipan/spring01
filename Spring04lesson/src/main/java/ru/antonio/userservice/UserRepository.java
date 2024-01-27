@@ -14,6 +14,13 @@ public class UserRepository {
     private Map<Long, User> users = new ConcurrentHashMap<>();
     private AtomicLong counter = new AtomicLong();
 
+    public UserRepository () {
+        users.put(counter.incrementAndGet(), new User(counter.longValue(), "Igor", "igor@mail.ru"));
+        users.put(counter.incrementAndGet(), new User(counter.longValue(), "Ralf", "ralf@mail.com"));
+        users.put(counter.incrementAndGet(), new User(counter.longValue(), "Max", "max@false.tru"));
+
+    }
+
     public List <User> findAll () {
         return new ArrayList<>(users.values());
     }

@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping()
 public class UserController {
 
     private UserService userService;
@@ -14,13 +14,13 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping()
+    @GetMapping("/users")
     public String listUsers (Model model) {
         model.addAttribute("users", userService.getAllUsers());
         return "users";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/users/{id}")
     public String getUser (@PathVariable Long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         return "profile";
