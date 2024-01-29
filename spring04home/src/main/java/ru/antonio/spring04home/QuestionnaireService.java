@@ -21,4 +21,12 @@ public class QuestionnaireService {
     public List <Questionnaire> getAllQuestionnaire () {
         return qrf.getListQuestionnaires();
     }
+
+    public Questionnaire getQuestionnaireById(Long id) {
+        return qrf.getQuestionnaireById(id);
+    }
+
+    public List <Questionnaire> getCollections() {
+        return qrf.getListQuestionnaires();
+    }
 }

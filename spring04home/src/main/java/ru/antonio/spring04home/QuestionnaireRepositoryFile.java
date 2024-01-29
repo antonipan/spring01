@@ -60,4 +60,9 @@ public class QuestionnaireRepositoryFile {
     public List<Questionnaire> getListQuestionnaires() {
         return questionnaires;
     }
+
+    public Questionnaire getQuestionnaireById(Long id) {
+        return questionnaires.stream()
+                .filter(questionnaire -> questionnaire.getId() == id).findFirst().orElse(null);
+    }
 }

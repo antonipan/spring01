@@ -30,10 +30,16 @@ public class QuestionnairesController {
 
     @GetMapping("/list")
     public String browseCollectList (Model model) {
-        return "Privet";
+        model.addAttribute("questionnaires", questionnaireService.getCollections());
+        return "list";
     }
 
     @GetMapping("/{id}")
-    public String getOneQuestionnaire (@PathVariable Long id)
+    public String getOneQuestionnaire (@PathVariable Long id, Model model) {
+        model.addAttribute("questionnaire", questionnaireService.getQuestionnaireById(id));
+        return "questionnaire";
+    }
+
+
 
 }

@@ -14,7 +14,6 @@
         <th>Автор</th>
         <th>Количество вопросов</th>
         <th>Процент прохождения</th>
-
     </tr>
     <tr th:each="questionnaire: ${questionnaires}">
         <th th:text = "${questionnaire.id}"></th>
@@ -22,8 +21,9 @@
         <th th:text = "${questionnaire.author}"></th>
         <th th:text = "${questionnaire.quantityQuestions}"></th>
         <th th:text = "${questionnaire.shareCorrectAnsers}"></th>
-
     </tr>
 </table>
+    <p></p>
+    <p><a th:href = "@{/questionnaires}">На главную</a></p>
 </body>
 </html>
