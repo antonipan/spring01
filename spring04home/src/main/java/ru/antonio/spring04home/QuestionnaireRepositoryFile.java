@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 public class QuestionnaireRepositoryFile {
-    private final String filePath = "src/main/resources/jackson/Questionnaire.html.json";
+    private final String filePath = "src/main/resources/jackson/Questionnaire.json";
     private File file;
     private ObjectMapper mapper;
     private List <Questionnaire> questionnaires;

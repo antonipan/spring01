@@ -1,24 +1,15 @@
 <!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="utf-8" />
-    <title>Анкеты, тесты, опросники</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-<h2>Анекты, тесты, опросники</h2>
-<p>Ниже представлен список доступных тестов, которые можно проходить</p>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Название</th>
-        <th>Автор</th>
-    </tr>
-    <tr th:each="questionnaire: ${questionnaires}">
-        <th th:text = "${questionnaire.id}"></th>
-        <th><a th:href = "@{/questionnaires/{id}(id=${questionnaire.id})}" th:text="${questionnaire.name}"></a></th>
-        <th th:text = "${questionnaire.author}"></th>
-    </tr>
-</table>
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Методика</title>
+    </head>
+    <body>
+        <h2 th:text="${questionnaire.name}">Название: </h2>
+            <p>ID: <span th:text="${user.id}"></span></p>
+            <p>Автор: <span th:text="${questionnaire.author}"></span></p>
+            <p>Количество вопросов: <span th:text="${questionnaire.quantityQuestions}"></span></p>
+            <p>Необходимый коэффициент прохождения: <span th:text="${questionnaire.shareCorrectAnsers}"></span></p>
+        <a th:href = "@{/questionnaires}">Назад</a>
+    </body>
 </html>
